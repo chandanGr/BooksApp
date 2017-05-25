@@ -9,7 +9,8 @@ import {
   Modal,
   View
 } from 'react-native';
-import SignIn from "./SignIn"
+import {Navigator} from "react-native-deprecated-custom-components"
+
 
 export default class Luffy extends Component{
 
@@ -19,6 +20,13 @@ export default class Luffy extends Component{
             modalVisible : false,
             modal2Visible : false,
         }
+    }
+    onPressMyBooks(){
+        console.log("dsfd");
+        this.props.navigator.push({
+            id: "MyBooks",
+            __navigatorRouteID: 1
+        });
     }
 
 
@@ -33,7 +41,7 @@ export default class Luffy extends Component{
           >
 
             <View style = {styles.header}>
-                <View style = {{marginRight : 200}}><TouchableHighlight onPress={() => {this.setState({modalVisible : false})}}><Text>back</Text></TouchableHighlight></View>
+                <View style = {{marginRight : 200}}><TouchableOpacity onPress={() => {this.setState({modalVisible : false})}}><Text>back</Text></TouchableOpacity></View>
                 <Text style = {styles.headerText}>Sign In Form</Text>
             </View>
             <View style = {styles.body}>
@@ -54,31 +62,36 @@ export default class Luffy extends Component{
           >
         
             <View style = {styles.header}>
-                <View style = {{marginRight : 200}}><TouchableHighlight onPress={() => {this.setState({modal2Visible : false})}}><Text>Back</Text></TouchableHighlight></View>
+                <View style = {{marginRight : 200}}><TouchableOpacity onPress={() => {this.setState({modal2Visible : false})}}><Text>Back</Text></TouchableOpacity></View>
                 <Text style = {styles.headerText}>Log In Form</Text>
             </View>
             <View>
                 <Text>Emai: Id : </Text><TextInput></TextInput>
                 <Text>Password : </Text><TextInput secureTextEntry = {true}></TextInput>
             </View>
+            <View style = {{backgroundColor : "grey", alignItems : "center", justifyContent : "center", height : 50}}>
+                <TouchableOpacity onPress = {this.onPressMyBooks.bind(this)}><Text>Lets Go</Text></TouchableOpacity>
+            </View>
         </Modal>
 
-        <View style = {{backgroundColor : "skyblue", height : 100, flexDirection : "row", justifyContent : "space-around", alignItems : "center"}}>
-            <View>
+        <View>
+            <View style = {{backgroundColor : "skyblue", height : 100,justifyContent : "space-around", alignItems : "center"}}>
                 <Text>Home</Text>
             </View>
-            <View style = {{flexDirection : "row",}}>
-                <TouchableHighlight onPress={() => {
-                    this.setState({modalVisible : true})
-                    }}>
-                    <Text style= {{margin : 10}}>Sign IN</Text>
-                </TouchableHighlight>
+            <View style = {{backgroundColor : "#48C9B0", justifyContent : "center", height : 600, alignItems : "center", }}>
+                <View style = {{flexDirection : "row",}}>
+                    <TouchableOpacity onPress={() => {
+                        this.setState({modalVisible : true})
+                        }}>
+                        <Text style= {{margin : 10}}>Sign IN</Text>
+                    </TouchableOpacity>
 
-                <TouchableHighlight onPress={() => {
-                    this.setState({modal2Visible : true})
-                    }}>
-                    <Text style= {{margin : 10}}>Log IN</Text>
-                </TouchableHighlight>
+                    <TouchableOpacity onPress={() => {
+                        this.setState({modal2Visible : true})
+                        }}>
+                        <Text style= {{margin : 10}}>Log IN</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
       </View>

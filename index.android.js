@@ -9,14 +9,19 @@ import {
 } from 'react-native';
 import {Navigator} from "react-native-deprecated-custom-components"
 import Luffy from "./src/Luffy"
+import MyBooks from "./src/MyBooks"
+
 
 export default class Books extends Component {
 
-  navigationTo(route, navigator){
+  navigationScene(route, navigator){
+    console.log(route),
     _navigator = navigator
     switch(route.id){
       case "Luffy" : 
-        return(<Luffy navigator = {navigator} title = "this is a title" />);
+        return(<Luffy navigator = {navigator} title = "fdf" />)
+      case "MyBooks" : 
+        return(<MyBooks navigator = {navigator} title = "dfd"/>);
     }
   }
 
@@ -27,7 +32,7 @@ export default class Books extends Component {
           id : "Luffy"
         }}
         renderScene = {
-          this.navigationTo
+          this.navigationScene
         }
       />
     );
