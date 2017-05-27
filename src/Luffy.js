@@ -23,9 +23,9 @@ export default class Luffy extends Component{
     }
     onPressMyBooks(){
         console.log("dsfd");
+        this.setState({modal2Visible : false});
         this.props.navigator.push({
-            id: "MyBooks",
-            __navigatorRouteID: 1
+            id : "MyBooks",
         });
     }
 

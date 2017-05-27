@@ -10,6 +10,7 @@ import {
 import {Navigator} from "react-native-deprecated-custom-components"
 import Luffy from "./src/Luffy"
 import MyBooks from "./src/MyBooks"
+import Books1 from "./src/Books1"
 
 
 export default class Books extends Component {
@@ -22,6 +23,8 @@ export default class Books extends Component {
         return(<Luffy navigator = {navigator} title = "fdf" />)
       case "MyBooks" : 
         return(<MyBooks navigator = {navigator} title = "dfd"/>);
+      case "Books1" : 
+        return(<Books1 navigator = {navigator} title = "Books1"/>);
     }
   }
 
@@ -29,7 +32,7 @@ export default class Books extends Component {
     return (
       <Navigator 
         initialRoute = {{
-          id : "Luffy"
+          id : "Books1"
         }}
         renderScene = {
           this.navigationScene
