@@ -1,6 +1,7 @@
 package com.books;
 
 import com.facebook.react.ReactActivity;
+import android.content.Intent;
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +13,5 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "Books";
     }
+
 }
